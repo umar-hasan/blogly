@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<img class="img-thumbnail w-25" src={{user.img_url}} alt="">
+<div class="d-inline-block">
+    <h1>
+        {{user.first_name}} {{user.last_name}}
+    </h1>
+    <div>
+        <a href="/users/{{user.id}}/edit">
+            <button class="btn btn-success">
+                Edit
+            </button>
+        </a>
+        <a href="/users/{{user.id}}/delete">
+            <button class="btn btn-danger">
+                Delete
+            </button>
+        </a>
+    </div>
+</div>
+
+
+
+<h1>
+    Posts
+</h1>
+{% if posts | length == 0 %}
+    <p>No posts made.</p>
+{% else %}
+    <ul>
+        {% for post in posts %}
+        <li><a href="/posts/{{post.id}}">{{post.title}}</a></li>
+        {% endfor %}
+    </ul>
+{% endif %}
+<a href="/users/{{user.id}}/posts/new">
+    <button class="btn btn-primary">Add Post</button>
+</a>
+
+{% endblock %}

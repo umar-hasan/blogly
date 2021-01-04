@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{post.title}}</h1>
+<p>{{post.content}}</p>
+
+<h3>Tags</h3>
+{% if post.tags | length > 0 %}
+    {% for tag in post.tags %}
+        <span class="badge bg-primary">{{tag.name}}</span>
+    {% endfor %}
+{% else %}
+    <p>None</p>
+{% endif %}
+<div class="my-4">
+    <a href="/users/{{post.user_id}}">
+        <button class="btn btn-outline-dark">Back</button>
+    </a>
+    <a href="/posts/{{id}}/edit">
+        <button class="btn btn-success">Edit</button>
+    </a>
+    <form action="/posts/{{id}}/delete" method="POST">
+        <button class="btn btn-danger my-2">Delete</button>
+    </form>
+</div>
+
+
+{% endblock %}

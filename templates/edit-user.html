@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form class="d-flex flex-column w-50 mx-auto" action="/users/{{id}}/edit" method="POST">
+    <label for="firstname">First Name</label>
+    <input type="text" name="firstname" value={{firstname}} required>
+    <label for="lastname">Last Name</label>
+    <input type="text" name="lastname" value={{lastname}} required>
+    <label for="image">Image URL</label>
+    <input type="url" name="image" value={{img_url}} required>
+    
+    <button class="btn btn-primary align-self-center my-2" name="action" value="add">Submit</button>
+</form>
+<div class="text-center my-2">
+    <a href="/users/{{id}}">
+        <button class="btn btn-outline-dark" name="action" value="cancel">Cancel</button>
+    </a>
+</div>
+{% endblock %}

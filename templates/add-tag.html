@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for message in get_flashed_messages() %}
+<div class="alert alert-danger w-100 my-2 " role="alert">
+    {{message}}
+</div>
+{% endfor %}
+<h1>Add Tag</h1>
+<form action="/tags/new" method="POST">
+    <label for="name">Name: </label>
+    <input type="text" name="name" required>
+    <button class="btn btn-primary">Add</button>
+</form>
+<a href="/tags">
+    <button class="btn btn-outline-dark">Cancel</button>
+</a>
+{% endblock %}

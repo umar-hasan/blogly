@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/users/new" method="POST">
+    <div class="d-flex flex-column w-25 mx-auto">
+        <label for="firstname">First Name</label>
+        <input type="text" name="firstname" placeholder="First Name" required>
+        <label for="lastname">Last Name</label>
+        <input type="text" name="lastname" placeholder="Last Name" required>
+        <label for="image">Image URL</label>
+        <input type="url" name="image" placeholder="Image URL" required>
+        <div class="align-self-center my-2">
+            <button class="btn btn-primary" name="add" value="add">Add</button>
+        </div>
+
+    </div>
+</form>
+<div class="mx-auto text-center">
+    <a class="mx-auto" href="/">
+        <button class="btn btn-outline-dark" name="cancel" value="cancel">Cancel</button>
+    </a>
+</div>
+
+{% endblock %}

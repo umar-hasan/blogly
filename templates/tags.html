@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Tags</h1>
+{% if tags | length > 0 %}
+<ul>
+    {% for tag in tags %}
+        <li>
+            <a href="/tags/{{tag.id}}">{{tag.name}}</a>
+        </li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No tags created.</p>
+{% endif %}
+<a href="/tags/new">
+    <button class="btn btn-primary">Add Tag</button>
+</a>
+{% endblock %}
