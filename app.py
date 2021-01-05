@@ -90,7 +90,8 @@ def add_post(user_id):
     content = request.form["content"]
     tags = request.form.getlist("tags")
 
-    post = Post(title=title, content=content, user_id=user_id, tags=tags)
+    post = Post(title=title, content=content, user_id=user_id)
+    post.tags.extend(tags)
     
     db.session.add(post)
     db.session.commit()

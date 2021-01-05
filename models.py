@@ -48,5 +48,5 @@ class PostTag(db.Model):
 
     __tablename__ = "post_tags"
 
-    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True, nullable=False, unique=True)
-    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True, nullable=False, unique=True)
+    post_id = db.Column(db.Integer, db.ForeignKey('posts.id'), primary_key=True, nullable=False)
+    tag_id = db.Column(db.Integer, db.ForeignKey('tags.id'), primary_key=True, nullable=False)
